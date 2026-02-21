@@ -12,14 +12,33 @@ body {
     justify-content: center;
     align-items: center;
     color: white;
+    overflow: hidden;
 }
 
-/* Container */
+/* Animated glow background */
+body::before {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle at 30% 30%, rgba(0, 140, 255, 0.15), transparent 40%),
+                radial-gradient(circle at 70% 60%, rgba(255, 215, 0, 0.12), transparent 40%);
+    animation: moveGlow 12s infinite alternate ease-in-out;
+    z-index: 0;
+}
+
+@keyframes moveGlow {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(-10%, -10%); }
+}
+
 .container {
     text-align: center;
+    position: relative;
+    z-index: 1;
 }
 
-/* Title - Shiny Silver */
+/* Title - polished silver */
 .title {
     font-size: 3rem;
     font-weight: 800;
@@ -29,10 +48,11 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 
+    text-shadow: 0 0 20px rgba(255,255,255,0.2);
     letter-spacing: 2px;
 }
 
-/* Subtitle - Gold Gradient */
+/* Subtitle - glowing gold */
 .subtitle {
     font-size: 1.2rem;
     font-weight: 700;
@@ -42,40 +62,49 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 
-    opacity: 0.9;
+    text-shadow: 0 0 15px rgba(255,215,0,0.4);
 }
 
-/* Countdown Layout */
+/* Countdown */
 #countdown {
     display: flex;
-    gap: 20px;
+    gap: 25px;
     justify-content: center;
 }
 
-/* Time Boxes */
+/* Time boxes */
 .time-box {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 25px 20px;
-    border-radius: 16px;
-    backdrop-filter: blur(10px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    min-width: 90px;
-    transition: transform 0.2s ease;
+    background: rgba(255, 255, 255, 0.06);
+    padding: 28px 22px;
+    border-radius: 18px;
+    backdrop-filter: blur(14px);
+    box-shadow: 
+        0 10px 40px rgba(0,0,0,0.6),
+        inset 0 0 10px rgba(255,255,255,0.05);
+
+    min-width: 95px;
+    transition: all 0.25s ease;
 }
 
 .time-box:hover {
-    transform: translateY(-6px);
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 
+        0 20px 60px rgba(0,0,0,0.8),
+        0 0 25px rgba(255,255,255,0.1);
 }
 
-/* Numbers */
+/* Numbers with smooth pop */
 .time-box span {
-    font-size: 2.2rem;
+    font-size: 2.4rem;
     font-weight: bold;
+    display: inline-block;
+    transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
-/* Labels */
+/* Label */
 .time-box p {
     font-size: 0.8rem;
     opacity: 0.6;
-    margin-top: 5px;
+    margin-top: 6px;
+    letter-spacing: 1px;
 }
