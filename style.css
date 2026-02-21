@@ -7,48 +7,73 @@
 
 body {
     height: 100vh;
-    background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+    background: linear-gradient(to bottom, #0b1d3a, #000000);
     display: flex;
     justify-content: center;
     align-items: center;
     color: white;
 }
 
+/* Container */
 .container {
     text-align: center;
 }
 
+/* Title - Shiny Silver */
 .title {
-    font-size: 2.5rem;
-    margin-bottom: 40px;
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+
+    background: linear-gradient(120deg, #ffffff, #cfcfcf, #ffffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
     letter-spacing: 2px;
-    opacity: 0.8;
 }
 
+/* Subtitle - Gold Gradient */
+.subtitle {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+
+    background: linear-gradient(120deg, #ffd700, #ffb700, #ffd700);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    opacity: 0.9;
+}
+
+/* Countdown Layout */
 #countdown {
     display: flex;
     gap: 20px;
+    justify-content: center;
 }
 
+/* Time Boxes */
 .time-box {
     background: rgba(255, 255, 255, 0.05);
     padding: 25px 20px;
     border-radius: 16px;
     backdrop-filter: blur(10px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     min-width: 90px;
     transition: transform 0.2s ease;
 }
 
 .time-box:hover {
-    transform: translateY(-5px);
+    transform: translateY(-6px);
 }
 
+/* Numbers */
 .time-box span {
-    font-size: 2rem;
+    font-size: 2.2rem;
     font-weight: bold;
 }
 
+/* Labels */
 .time-box p {
     font-size: 0.8rem;
     opacity: 0.6;
