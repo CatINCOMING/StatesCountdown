@@ -1,4 +1,3 @@
-// Set your target date here
 const targetDate = new Date("2026-03-12T09:00:00").getTime();
 
 function updateCountdown() {
